@@ -1,6 +1,6 @@
 CC = cc -Wall -Wextra -Werror
 NAME = libftprintf.a
-HEAD = printf.h
+HEAD = ft_printf.h
 SRC = ft_printf.c ft_printf_utils.c
 
 OBJ = $(SRC:.c=.o)
