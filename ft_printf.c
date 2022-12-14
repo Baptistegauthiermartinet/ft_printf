@@ -6,7 +6,7 @@
 /*   By: bgauthie <bgauthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:20:34 by bgauthie          #+#    #+#             */
-/*   Updated: 2022/12/14 13:52:32 by bgauthie         ###   ########.fr       */
+/*   Updated: 2022/12/14 15:13:00 by bgauthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int	ft_printf(const char *str, ...)
 	while (i < j)
 	{
 		while (str[i] && str[i] != '%')
+			ft_putchar_fd(str[i++], &printed, 1);
+		if (i + 1 < j)
 		{
-			ft_putchar_fd(str[i], &printed, 1);
+			get_type(str, a, &i, &printed);
 			i++;
 		}
-		if (i + 1 < j)
-			get_type(str, a, &i, &printed);
 		else
 			i++;
 	}
@@ -57,5 +57,5 @@ void	get_type(const char *str, va_list a, size_t *i, int *printed)
 		ft_putnbr_base_fd(va_arg(a, unsigned), "0123456789ABCDEF", printed, 1);
 	if (str[*i + 1] == '%')
 		ft_putchar_fd('%', printed, 1);
-	(*i) += 2;
+	(*i) += 1;
 }
