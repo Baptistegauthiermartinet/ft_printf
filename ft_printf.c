@@ -6,7 +6,7 @@
 /*   By: bgauthie <bgauthie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:20:34 by bgauthie          #+#    #+#             */
-/*   Updated: 2022/12/12 17:11:16 by bgauthie         ###   ########.fr       */
+/*   Updated: 2022/12/14 13:52:32 by bgauthie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	ft_printf(const char *str, ...)
 		}
 		if (i + 1 < j)
 			get_type(str, a, &i, &printed);
+		else
+			i++;
 	}
 	va_end(a);
 	return (printed);
